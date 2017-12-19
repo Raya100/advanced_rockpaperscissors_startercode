@@ -20,6 +20,13 @@
 
 //GLOBAL VARIABLES
 
+var yourChoice ="";
+
+var computerChoice ="";
+
+var winner ="";
+
+var choices = ["rock", "paper", "scissors"];
 
 
 //FUNCTIONS
@@ -27,4 +34,51 @@
 
 
 // DOCUMENT READY FUNCTION
+
+$( document ).ready(function() {
+ $("button").click(function(){
+     yourChoice = $('#input').val();
+     console.log(yourChoice);
+     $("#yourChoice").html(yourChoice);
+     var computer = Math.floor(Math.random()*choices.length);
+     computerChoice = choices[computer];
+    // yourChoice = choices[input];
+     $("#computerChoice").html(computerChoice);
+     console.log(computerChoice);
+     
+     if ((computerChoice === "rock") && (yourChoice === "rock")) {
+     $("body").append("It's a tie!");
+ }
+   else if ((computerChoice === "rock") && (yourChoice === "paper")) {
+     $("body").append("You Win!");
+ }
+   else if ((computerChoice === "rock") && (yourChoice === "scissors")) {
+     $("body").append("Computer Wins!");
+ }
+   else if ((computerChoice === "paper") && (yourChoice === "paper")) {
+    $("body").append("It's a tie!");
+ }
+   else if ((computerChoice === "paper") && (yourChoice === "rock")) {
+    $("body").append("Computer Wins!");
+ }
+   else if ((computerChoice === "paper") && (yourChoice === "scissors")) {
+    $("body").append("You Win!");
+ }
+   else if ((computerChoice === "scissors") && (yourChoice === "rock")) {
+    $("body").append("You Win!");
+ }
+   else if ((computerChoice === "scissors") && (yourChoice === "paper")) {
+    $("body").append("Computer Wins!");
+ }
+   else if ((computerChoice === "scissors") && (yourChoice === "scissors")) {
+    $("body").append("It's a tie!");
+ }
+     
+  });
+});
+
+
+   
+
+
 
